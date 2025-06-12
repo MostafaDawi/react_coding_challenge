@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaRegCircle } from "react-icons/fa";
+import { FaArrowLeft, FaBackward, FaRegCircle } from "react-icons/fa";
 
 export const Sidebar = ({
   activePageSide = "Select Skip",
@@ -30,42 +30,55 @@ export const Sidebar = ({
   ];
   console.log("Visited: ", visitedPages, "Active: ", activePage);
   return (
-    <aside className="bg-gray-800 w-80 p-5 ">
-      <div>
-        <button className="mb-5 text-lg">Back</button>
-        <ul className="space-y-1 relative">
-          {pages.map((page) => (
-            <>
-              <div
-                className={`w-px h-5 ml-2.5 ${
-                  visitedPages[page.name] ? "bg-amber-300" : "bg-amber-100"
-                }`}
-              ></div>
+    <>
+      <aside className="hidden md:block bg-neutral-800 w-70 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
+        <div>
+          <button className="mb-5 text-xl flex items-center justify-center gap-3 cursor-pointer">
+            <span className="w-5 h-5">
+              <FaArrowLeft />
+            </span>
+            Back
+          </button>
+          <ul className="space-y-1 relative">
+            {pages.map((page) => (
+              <div key={page.name}>
+                <div
+                  className={`w-px h-5 ml-2.5 ${
+                    visitedPages[page.name] ? "bg-amber-300" : "bg-white"
+                  }`}
+                ></div>
 
-              <li
-                className={`flex items-center gap-5 transition duration-300 ${
-                  activePage === page.name
-                    ? "text-amber-300 text-3xl font-semibold transform"
-                    : visitedPages[page.name]
-                    ? "text-amber-300 text-xl"
-                    : "text-white text-xl"
-                }`}
-              >
-                <span
-                  className={`flex w-5 h-5 items-center justify-center transition-transform duration-300 ${
+                <li
+                  className={`flex cursor-pointer items-center gap-5 transition-all duration-300 ${
                     activePage === page.name
-                      ? "scale-180 transform"
-                      : "scale-100"
+                      ? "text-amber-300 text-3xl font-semibold transform"
+                      : visitedPages[page.name]
+                      ? "text-amber-300 text-xl"
+                      : "text-white text-xl"
                   }`}
                 >
-                  <FaRegCircle />
-                </span>
-                <span>{page.name}</span>
-              </li>
-            </>
-          ))}
-        </ul>
+                  <span
+                    className={`flex w-5 h-5 items-center justify-center transition-transform duration-300 ${
+                      activePage === page.name
+                        ? "scale-180 transform"
+                        : "scale-100"
+                    }`}
+                  >
+                    <FaRegCircle />
+                  </span>
+                  <span>{page.name}</span>
+                </li>
+              </div>
+            ))}
+          </ul>
+        </div>
+      </aside>
+      {/* SMALL SCREEN TOP ACTIVE PAGE */}
+      <div className="block md:hidden w-full bg-neutral-800 text-amber-300 text-xl font-semibold p-4 fixed top-0 right-0 z-50 shadow-lg flex items-center justify-center gap-3">
+        <FaRegCircle className="scale-125" />
+        {activePage}
       </div>
-    </aside>
+      <div className="block md:hidden h-16"></div>
+    </>
   );
 };
