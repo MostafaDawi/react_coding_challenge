@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaBackward, FaRegCircle } from "react-icons/fa";
+import { FaArrowLeft, FaRegCircle } from "react-icons/fa";
 
 export const Sidebar = ({
   activePageSide = "Select Skip",
-  visitedPagesSide = {},
+  visitedPagesSide = { Postcode: 1, "Waste Type": 1 },
 }) => {
   const [activePage, setActivePage] = useState(activePageSide);
   const [visitedPages, setVisitedPages] = useState(visitedPagesSide);
@@ -31,7 +31,7 @@ export const Sidebar = ({
   console.log("Visited: ", visitedPages, "Active: ", activePage);
   return (
     <>
-      <aside className="hidden md:block bg-neutral-800 w-60 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
+      <aside className="hidden md:block bg-neutral-800/50 backdrop-blur-sm w-60 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
         <div>
           <button className="mb-5 text-xl flex items-center justify-center gap-3 cursor-pointer">
             <span className="w-5 h-5">

@@ -8,7 +8,7 @@ function App() {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <main className="flex min-h-screen">
+      <main className="flex min-h-screen bg-[url(./public/topo.jpg)] bg-fixed bg-cover">
         <Sidebar />
         <Select_Skip />
       </main>
