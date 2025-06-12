@@ -20,6 +20,7 @@ export const Sidebar = ({
     });
   }, [activePageSide]);
 
+  // Dummy pages used for this exercise
   const pages = [
     { name: "Postcode" },
     { name: "Waste Type" },
@@ -28,9 +29,10 @@ export const Sidebar = ({
     { name: "Choose Date" },
     { name: "Payment" },
   ];
-  console.log("Visited: ", visitedPages, "Active: ", activePage);
+
   return (
     <>
+      {/* ACTIVE FULLSCREEN SIDEBAR */}
       <aside className="hidden md:block bg-neutral-800/50 backdrop-blur-sm w-60 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
         <div>
           <button className="mb-5 text-xl flex items-center justify-center gap-3 cursor-pointer">
@@ -51,7 +53,7 @@ export const Sidebar = ({
                 <li
                   className={`flex cursor-pointer items-center gap-5 transition-all duration-300 ${
                     activePage === page.name
-                      ? "text-amber-300 text-3xl font-semibold transform"
+                      ? "text-amber-300 text-2xl font-semibold transform"
                       : visitedPages[page.name]
                       ? "text-amber-300 text-xl"
                       : "text-white text-xl"

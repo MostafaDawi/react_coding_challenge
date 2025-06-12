@@ -19,7 +19,7 @@ export const Card = ({ data = {}, isOpen = false, onCardClick }) => {
       className="relative group overflow-hidden rounded-md w-full"
       onClick={onCardClick}
     >
-      <div className="overflow-hidden flex flex-col md:flex-row bg-neutral-500/80 text-black border-3 border-transparent hover:border-neutral-300 transition-transform duration-300 font-semibold font-sans w-full mx-auto">
+      <div className="overflow-hidden flex flex-col md:flex-row bg-neutral-400/80 text-black border-3 border-transparent hover:border-neutral-300 transition-transform duration-300 font-semibold font-sans w-full mx-auto">
         <div className="relative w-full md:w-1/2 h-64 flex items-center justify-center overflow-hidden">
           {
             <img
