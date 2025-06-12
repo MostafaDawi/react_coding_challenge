@@ -31,7 +31,7 @@ export const Sidebar = ({
   console.log("Visited: ", visitedPages, "Active: ", activePage);
   return (
     <>
-      <aside className="hidden md:block bg-neutral-800 w-70 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
+      <aside className="hidden md:block bg-neutral-800 w-60 p-5 overflow-y-auto h-screen fixed border-r border-neutral-600">
         <div>
           <button className="mb-5 text-xl flex items-center justify-center gap-3 cursor-pointer">
             <span className="w-5 h-5">
