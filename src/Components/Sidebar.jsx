@@ -41,7 +41,7 @@ export const Sidebar = ({
             </span>
             Back
           </button>
-          <ul className="space-y-1 relative">
+          <ul className="space-y-2 relative items-center">
             {pages.map((page) => (
               <div key={page.name}>
                 <div
